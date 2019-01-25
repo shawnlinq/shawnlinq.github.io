@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="NS12Yue1Ql">
+<meta name="google-site-verification" content="oJs5n2tuC6QdWpSzYCZga-3UsNcXnZCiOviHtspzhmA">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Python的sort用法以及原理 在python中如果要对list, tuple, dict进行排序，一般会用到sort函数  1. 基本用法1.1 列表123456x = [4, 6, 2, 3]y = x.sort()z = sorted(x)print(x)print(y)print(z) output:  123[2,3,4,6]None[2,3,4,6]  sort和sorted的原理">
+<meta name="keywords" content="blog, 博客, 外贸, hexo, 产品, 调研">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的sort用法以及原理">
+<meta property="og:url" content="http://yoursite.com/Python的sort用法以及原理/index.html">
+<meta property="og:site_name" content="Shawn&#39;s Blog">
+<meta property="og:description" content="Python的sort用法以及原理 在python中如果要对list, tuple, dict进行排序，一般会用到sort函数  1. 基本用法1.1 列表123456x = [4, 6, 2, 3]y = x.sort()z = sorted(x)print(x)print(y)print(z) output:  123[2,3,4,6]None[2,3,4,6]  sort和sorted的原理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-25T14:17:45.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python的sort用法以及原理">
+<meta name="twitter:description" content="Python的sort用法以及原理 在python中如果要对list, tuple, dict进行排序，一般会用到sort函数  1. 基本用法1.1 列表123456x = [4, 6, 2, 3]y = x.sort()z = sorted(x)print(x)print(y)print(z) output:  123[2,3,4,6]None[2,3,4,6]  sort和sorted的原理">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Python的sort用法以及原理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python的sort用法以及原理 | Shawn's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shawn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Today My Life Begins</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Python的sort用法以及原理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawn Lin">
+      <meta itemprop="description" content="一个略懂编程的外贸人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shawn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python的sort用法以及原理
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-05 10:10:10" itemprop="dateCreated datePublished" datetime="2017-09-05T10:10:10+08:00">2017-09-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-25 22:17:45" itemprop="dateModified" datetime="2019-01-25T22:17:45+08:00">2019-01-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Python的sort用法以及原理/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/Python的sort用法以及原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/Python的sort用法以及原理/" class="leancloud_visitors" data-flag-title="Python的sort用法以及原理">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python的sort用法以及原理"><a href="#Python的sort用法以及原理" class="headerlink" title="Python的sort用法以及原理"></a>Python的sort用法以及原理</h1><blockquote>
+<p>在python中如果要对list, tuple, dict进行排序，一般会用到sort函数</p>
+</blockquote>
+<h2 id="1-基本用法"><a href="#1-基本用法" class="headerlink" title="1. 基本用法"></a>1. 基本用法</h2><h3 id="1-1-列表"><a href="#1-1-列表" class="headerlink" title="1.1 列表"></a>1.1 列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">y = x.sort()</span><br><span class="line">z = sorted(x)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
+<p><strong>output: </strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2,3,4,6]</span><br><span class="line">None</span><br><span class="line">[2,3,4,6]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sort和sorted的原理类似，区别在于sort()是直接对原对象进行排序，没有返回值；而sorted()是新建一个对原对象排序后的新对象，返回新对象1.2 元组</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="1-2-元组"><a href="#1-2-元组" class="headerlink" title="1.2 元组"></a>1.2 元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">z = sorted(x)</span><br><span class="line">print(x)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(2, 5, 3, 4)</span><br><span class="line">[2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tuple没有sort()函数，另外值得注意的是，返回的是list，而非tuple</p>
+</blockquote>
+<h3 id="1-3-字典"><a href="#1-3-字典" class="headerlink" title="1.3 字典"></a>1.3 字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = &#123;<span class="string">"a"</span>:<span class="number">2</span>, <span class="string">"c"</span>:<span class="number">5</span>, <span class="string">"e"</span>:<span class="number">3</span>, <span class="string">"b"</span>:<span class="number">4</span>&#125;</span><br><span class="line">z = sorted(x)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">['a', 'b', 'c', 'e']</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>dict没有sort()函数，默认情况下是对字典的键进行排序，并返回排序后的键列表</p>
+</blockquote>
+<h2 id="2-进阶用法"><a href="#2-进阶用法" class="headerlink" title="2. 进阶用法"></a>2. 进阶用法</h2><h3 id="2-1-key函数"><a href="#2-1-key函数" class="headerlink" title="2.1 key函数"></a>2.1 key函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(sorted(<span class="string">"This is a test string from Andrew"</span>.split(), key=str.lower))</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>key可以接受一个函数，用于指定排序方法</p>
+</blockquote>
+<h3 id="2-2-lambda函数"><a href="#2-2-lambda函数" class="headerlink" title="2.2 lambda函数"></a>2.2 lambda函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student_tuples = [</span><br><span class="line">        (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</span><br><span class="line">        (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</span><br><span class="line">        (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</span><br><span class="line">]</span><br><span class="line">print(sorted(student_tuples, key=<span class="keyword">lambda</span> student: student[<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过第三个元素进行排序</p>
+</blockquote>
+<h3 id="2-3-类方法"><a href="#2-3-类方法" class="headerlink" title="2.3 类方法"></a>2.3 类方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade, age)</span>:</span></span><br><span class="line">                self.name = name</span><br><span class="line">                self.grade = grade</span><br><span class="line">                self.age = age</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">                <span class="keyword">return</span> repr((self.name, self.grade, self.age))</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">weighted_grade</span><span class="params">(self)</span>:</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">'CBA'</span>.index(self.grade) / float(self.age)</span><br><span class="line"></span><br><span class="line">student_objects = [</span><br><span class="line">        Student(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</span><br><span class="line">        Student(<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</span><br><span class="line">        Student(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</span><br><span class="line">]</span><br><span class="line">print(sorted(student_objects, key=<span class="keyword">lambda</span> student: student.age))</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过类方法指定key参数</p>
+</blockquote>
+<h3 id="2-4-正序或反序"><a href="#2-4-正序或反序" class="headerlink" title="2.4 正序或反序"></a>2.4 正序或反序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student = [</span><br><span class="line">        (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</span><br><span class="line">        (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</span><br><span class="line">        (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</span><br><span class="line">]</span><br><span class="line">print(sorted(student, key=<span class="keyword">lambda</span> x:x[<span class="number">2</span>], reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>指定reverse的参数为True则进行反序排列，设为False或者不设则默认为正序排列</p>
+</blockquote>
+<h2 id="3-Operator模组"><a href="#3-Operator模组" class="headerlink" title="3 Operator模组"></a>3 Operator模组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter, attrgetter, methodcaller</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade, age)</span>:</span></span><br><span class="line">                self.name = name</span><br><span class="line">                self.grade = grade</span><br><span class="line">                self.age = age</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">                <span class="keyword">return</span> repr((self.name, self.grade, self.age))</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">weighted_grade</span><span class="params">(self)</span>:</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">'CBA'</span>.index(self.grade) / float(self.age)</span><br><span class="line"></span><br><span class="line">student_objects = [</span><br><span class="line">        Student(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</span><br><span class="line">        Student(<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</span><br><span class="line">        Student(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">student_tuples = [</span><br><span class="line">        (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</span><br><span class="line">        (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</span><br><span class="line">        (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">print(sorted(student_tuples, key=itemgetter(<span class="number">2</span>)))</span><br><span class="line">print(sorted(student_objects, key=attrgetter(<span class="string">'age'</span>)))</span><br><span class="line">print(sorted(student_tuples, key=itemgetter(<span class="number">1</span>,<span class="number">2</span>)))</span><br><span class="line">print(sorted(student_objects, key=attrgetter(<span class="string">'grade'</span>, <span class="string">'age'</span>)))</span><br><span class="line">print(sorted(student_objects, key=methodcaller(<span class="string">'weighted_grade'</span>)))</span><br></pre></td></tr></table></figure>
+<p><strong>output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span><br><span class="line">[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span><br><span class="line">[('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]</span><br><span class="line">[('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]</span><br><span class="line">[('jane', 'B', 12), ('dave', 'B', 10), ('john', 'A', 15)]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在Operator模组中，有itemgetter, attrgetter以及methodecaller方法</p>
+</blockquote>
+<h2 id="4-sorted-原理"><a href="#4-sorted-原理" class="headerlink" title="4 sorted()原理"></a>4 sorted()原理</h2><p>python中的sort()方法使用的是快排。</p>
+<blockquote>
+<p>快速排序分治法思想的一种实现，它的思路是使数组中的每个元素与基准值（Pivot，通常是数组的首个值，A[0]）比较，数组中比基准值小的放在基准值的左边，形成左部；大的放在右边，形成右部；接下来将左部和右部分别递归地执行上面的过程：选基准值，小的放在左边，大的放在右边…直到排序结束。</p>
+</blockquote>
+<h3 id="4-1-步骤："><a href="#4-1-步骤：" class="headerlink" title="4.1 步骤："></a>4.1 步骤：</h3><ul>
+<li>找基准值，设Pivot = a[0] </li>
+<li>分区（Partition）：比基准值小的放左边，大的放右边，基准值(Pivot)放左部与右部的之间。</li>
+<li>进行左部（a[0] - a[pivot-1]）的递归，以及右部（a[pivot+1] - a[n-1]）的递归，重复上述步骤。</li>
+</ul>
+<h3 id="4-2-快排源码："><a href="#4-2-快排源码：" class="headerlink" title="4.2 快排源码："></a>4.2 快排源码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">quick_sort</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_partition</span><span class="params">(self, alist, p, r)</span>:</span></span><br><span class="line">    i = p<span class="number">-1</span></span><br><span class="line">    x = alist[r]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(p, r):</span><br><span class="line">      <span class="keyword">if</span> alist[j] &lt;= x:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        alist[i], alist[j] = alist[j], alist[i]</span><br><span class="line">    alist[i+<span class="number">1</span>], alist[r] = alist[r], alist[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_quicksort</span><span class="params">(self, alist, p, r)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> p &lt; r:</span><br><span class="line">      q = self._partition(alist, p, r)</span><br><span class="line">      self._quicksort(alist, p, q<span class="number">-1</span>)</span><br><span class="line">      self._quicksort(alist, q+<span class="number">1</span>, r)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, sort_list)</span>:</span></span><br><span class="line">    self._quicksort(sort_list, <span class="number">0</span>, len(sort_list)<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">return</span> sort_list</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Python小练习/" rel="next" title="Python小练习">
+                <i class="fa fa-chevron-left"></i> Python小练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Git命令速查手册/" rel="prev" title="Git命令速查手册">
+                Git命令速查手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Shawn Lin">
+            
+              <p class="site-author-name" itemprop="name">Shawn Lin</p>
+              <p class="site-description motion-element" itemprop="description">一个略懂编程的外贸人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/shawnlinq" title="GitHub &rarr; https://github.com/shawnlinq" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:shawn_linq@hotmail.com" title="E-Mail &rarr; mailto:shawn_linq@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.douban.com/people/47269318/" title="Douban &rarr; https://www.douban.com/people/47269318/" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/images/weixin.png" title="Weixin &rarr; /images/weixin.png"><i class="fa fa-fw fa-weixin"></i>Weixin</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python的sort用法以及原理"><span class="nav-number">1.</span> <span class="nav-text">Python的sort用法以及原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">1. 基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-列表"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-元组"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-字典"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进阶用法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 进阶用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-key函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 key函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-lambda函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 lambda函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-类方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 类方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-正序或反序"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 正序或反序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Operator模组"><span class="nav-number">1.3.</span> <span class="nav-text">3 Operator模组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-sorted-原理"><span class="nav-number">1.4.</span> <span class="nav-text">4 sorted()原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-步骤："><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-快排源码："><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 快排源码：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawn Lin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">32k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,102,245" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+
+
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function (item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'q4WTkMEfnI1dzAXyoeGVSsqV-gzGzoHsz',
+    appKey: 'rLq6jfODsKews2r2AmtotoLG',
+    placeholder: '气吞万里如虎~',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz',
+                'X-LC-Key': 'MGeMggbCv1gXJRkbnqvcFG17',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

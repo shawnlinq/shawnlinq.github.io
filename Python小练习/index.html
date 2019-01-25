@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="NS12Yue1Ql">
+<meta name="google-site-verification" content="oJs5n2tuC6QdWpSzYCZga-3UsNcXnZCiOviHtspzhmA">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="答题不限制编程语言1. 求从10到100中能被3或5整除的数的和。solutions 1: 1print(sum([x for x in range(10, 101) if x%3 ==0 or x%5 ==0])) solutions 2: 123456x = 0for i in range(10, 101):    if i%3 == 0 or i%5 ==0:        x += ipr">
+<meta name="keywords" content="blog, 博客, 外贸, hexo, 产品, 调研">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python小练习">
+<meta property="og:url" content="http://yoursite.com/Python小练习/index.html">
+<meta property="og:site_name" content="Shawn&#39;s Blog">
+<meta property="og:description" content="答题不限制编程语言1. 求从10到100中能被3或5整除的数的和。solutions 1: 1print(sum([x for x in range(10, 101) if x%3 ==0 or x%5 ==0])) solutions 2: 123456x = 0for i in range(10, 101):    if i%3 == 0 or i%5 ==0:        x += ipr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-25T13:50:35.189Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python小练习">
+<meta name="twitter:description" content="答题不限制编程语言1. 求从10到100中能被3或5整除的数的和。solutions 1: 1print(sum([x for x in range(10, 101) if x%3 ==0 or x%5 ==0])) solutions 2: 123456x = 0for i in range(10, 101):    if i%3 == 0 or i%5 ==0:        x += ipr">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Python小练习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python小练习 | Shawn's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shawn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Today My Life Begins</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Python小练习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawn Lin">
+      <meta itemprop="description" content="一个略懂编程的外贸人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shawn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python小练习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-29 10:10:10" itemprop="dateCreated datePublished" datetime="2017-07-29T10:10:10+08:00">2017-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-25 21:50:35" itemprop="dateModified" datetime="2019-01-25T21:50:35+08:00">2019-01-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Python小练习/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/Python小练习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/Python小练习/" class="leancloud_visitors" data-flag-title="Python小练习">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="答题不限制编程语言"><a href="#答题不限制编程语言" class="headerlink" title="答题不限制编程语言"></a><strong>答题不限制编程语言</strong></h2><h3 id="1-求从10到100中能被3或5整除的数的和。"><a href="#1-求从10到100中能被3或5整除的数的和。" class="headerlink" title="1. 求从10到100中能被3或5整除的数的和。"></a>1. 求从10到100中能被3或5整除的数的和。</h3><p><strong>solutions 1:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(sum([x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>, <span class="number">101</span>) <span class="keyword">if</span> x%<span class="number">3</span> ==<span class="number">0</span> <span class="keyword">or</span> x%<span class="number">5</span> ==<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<p><strong>solutions 2:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>, <span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span> <span class="keyword">or</span> i%<span class="number">5</span> ==<span class="number">0</span>:</span><br><span class="line">        x += i</span><br><span class="line"></span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-将一个字符串逆序，不要使用反转函数。"><a href="#2-将一个字符串逆序，不要使用反转函数。" class="headerlink" title="2. 将一个字符串逆序，不要使用反转函数。"></a>2. 将一个字符串逆序，不要使用反转函数。</h3><p><strong>solutions 1:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_reverse</span><span class="params">(a)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> a[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>solutions 2:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_reverse</span><span class="params">(a)</span>:</span></span><br><span class="line">    b = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">        b.append(a.pop())</span><br><span class="line">    <span class="keyword">return</span> b</span><br></pre></td></tr></table></figure>
+<h3 id="3-计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出-a-3-b-3-c-1-d-2-i-1-。"><a href="#3-计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出-a-3-b-3-c-1-d-2-i-1-。" class="headerlink" title="3. 计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出: a,3 b,3 c,1 d,2 i,1 。"></a>3. 计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出: a,3 b,3 c,1 d,2 i,1 。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">str_count</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> set(a):</span><br><span class="line">        print(<span class="string">"&#123;&#125;, &#123;&#125;"</span>.format(x, a.count(x)))</span><br></pre></td></tr></table></figure>
+<h3 id="4-写个函数，返回指定数的各位数字的列表。如数值54321返回-5-4-3-2-1-。"><a href="#4-写个函数，返回指定数的各位数字的列表。如数值54321返回-5-4-3-2-1-。" class="headerlink" title="4. 写个函数，返回指定数的各位数字的列表。如数值54321返回[5,4,3,2,1]。"></a>4. 写个函数，返回指定数的各位数字的列表。如数值54321返回[5,4,3,2,1]。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">return_list</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> str(a)]</span><br></pre></td></tr></table></figure>
+<h3 id="5-写个函数，找出并返回一个数组中的最大数和最小数。"><a href="#5-写个函数，找出并返回一个数组中的最大数和最小数。" class="headerlink" title="5. 写个函数，找出并返回一个数组中的最大数和最小数。"></a>5. 写个函数，找出并返回一个数组中的最大数和最小数。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_max_min</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"max=&#123;&#125; | min=&#123;&#125;"</span>.format(max(a), min(a))</span><br></pre></td></tr></table></figure>
+<h3 id="6-求斐波那契数列第n项，斐波那契数列前10项为1-1-2-3-5-8-13-21-34-55-…-。"><a href="#6-求斐波那契数列第n项，斐波那契数列前10项为1-1-2-3-5-8-13-21-34-55-…-。" class="headerlink" title="6. 求斐波那契数列第n项，斐波那契数列前10项为1,1,2,3,5,8,13,21,34,55,… 。"></a>6. 求斐波那契数列第n项，斐波那契数列前10项为1,1,2,3,5,8,13,21,34,55,… 。</h3><p><strong>solutions 1:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">or</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>solution 2：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于大数字n，用递归函数可能会栈溢出</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    a = [<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-2</span>):</span><br><span class="line">        a[<span class="number">0</span>],a[<span class="number">1</span>]=sum(a),a[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="7-输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）"><a href="#7-输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）" class="headerlink" title="7. 输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）"></a>7. 输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">one_count</span><span class="params">(n)</span>:</span></span><br><span class="line">    s = sum([str(x).count(<span class="string">"1"</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>)])</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"(1: &#123;&#125;个)"</span>.format(s)</span><br></pre></td></tr></table></figure>
+<h3 id="8-有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？"><a href="#8-有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？" class="headerlink" title="8. 有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？"></a>8. 有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">31</span>):</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">31</span>):</span><br><span class="line">        <span class="keyword">for</span> z <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">31</span>):</span><br><span class="line">            <span class="keyword">if</span> x + y + z == <span class="number">30</span> <span class="keyword">and</span> x*<span class="number">3</span> + y*<span class="number">2</span> + z == <span class="number">50</span>:</span><br><span class="line">                print(<span class="string">"男人&#123;&#125;个，女人&#123;&#125;个，小孩&#123;&#125;个"</span>.format(x, y, z))</span><br></pre></td></tr></table></figure>
+<h3 id="9-有20个犯人站成一圈，编号1-20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？"><a href="#9-有20个犯人站成一圈，编号1-20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？" class="headerlink" title="9. 有20个犯人站成一圈，编号1~20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？"></a>9. 有20个犯人站成一圈，编号1~20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a, n=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a[<span class="number">2</span>] == <span class="number">11</span>:</span><br><span class="line">        <span class="keyword">return</span> n+<span class="number">1</span></span><br><span class="line">    <span class="keyword">del</span> a[<span class="number">2</span>]</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    a.append(a.pop(<span class="number">0</span>))</span><br><span class="line">    a.append(a.pop(<span class="number">0</span>))</span><br><span class="line">    <span class="keyword">return</span> func(a, n=n)</span><br><span class="line"></span><br><span class="line">a = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)]</span><br><span class="line">print(<span class="string">"编号11的犯人第&#123;&#125;次被枪毙"</span>.format(func(a)))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/使用PuTTY远程连接云服务器/" rel="next" title="使用PuTTY远程连接云服务器">
+                <i class="fa fa-chevron-left"></i> 使用PuTTY远程连接云服务器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Python的sort用法以及原理/" rel="prev" title="Python的sort用法以及原理">
+                Python的sort用法以及原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Shawn Lin">
+            
+              <p class="site-author-name" itemprop="name">Shawn Lin</p>
+              <p class="site-description motion-element" itemprop="description">一个略懂编程的外贸人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/shawnlinq" title="GitHub &rarr; https://github.com/shawnlinq" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:shawn_linq@hotmail.com" title="E-Mail &rarr; mailto:shawn_linq@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.douban.com/people/47269318/" title="Douban &rarr; https://www.douban.com/people/47269318/" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/images/weixin.png" title="Weixin &rarr; /images/weixin.png"><i class="fa fa-fw fa-weixin"></i>Weixin</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#答题不限制编程语言"><span class="nav-number">1.</span> <span class="nav-text">答题不限制编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-求从10到100中能被3或5整除的数的和。"><span class="nav-number">1.1.</span> <span class="nav-text">1. 求从10到100中能被3或5整除的数的和。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-将一个字符串逆序，不要使用反转函数。"><span class="nav-number">1.2.</span> <span class="nav-text">2. 将一个字符串逆序，不要使用反转函数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出-a-3-b-3-c-1-d-2-i-1-。"><span class="nav-number">1.3.</span> <span class="nav-text">3. 计算任一长度的字符串中不同的字符以及它的个数，例如”abcdaadbib”，输出: a,3 b,3 c,1 d,2 i,1 。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-写个函数，返回指定数的各位数字的列表。如数值54321返回-5-4-3-2-1-。"><span class="nav-number">1.4.</span> <span class="nav-text">4. 写个函数，返回指定数的各位数字的列表。如数值54321返回[5,4,3,2,1]。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-写个函数，找出并返回一个数组中的最大数和最小数。"><span class="nav-number">1.5.</span> <span class="nav-text">5. 写个函数，找出并返回一个数组中的最大数和最小数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-求斐波那契数列第n项，斐波那契数列前10项为1-1-2-3-5-8-13-21-34-55-…-。"><span class="nav-number">1.6.</span> <span class="nav-text">6. 求斐波那契数列第n项，斐波那契数列前10项为1,1,2,3,5,8,13,21,34,55,… 。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）"><span class="nav-number">1.7.</span> <span class="nav-text">7. 输入一个正整数N，求从1数到N的过程中出现的所有1的数量，例如输入2，则输出（1：1个），输入10，则输出（1：2个），输入11，则输出（1：4个）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？"><span class="nav-number">1.8.</span> <span class="nav-text">8. 有30个人，其中有男人，女人和小孩，在一家饭馆吃饭，一共花费50元，其中每个男人3元，每个女人2元，每个小孩1元，问男人，女人，小孩各有几个？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-有20个犯人站成一圈，编号1-20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？"><span class="nav-number">1.9.</span> <span class="nav-text">9. 有20个犯人站成一圈，编号1~20，从1开始报数，报到3的人就被枪毙，然后下d一个重新报1。问题是编号11的犯人第几次被枪毙？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawn Lin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">32k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,102,245" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+
+
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function (item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'q4WTkMEfnI1dzAXyoeGVSsqV-gzGzoHsz',
+    appKey: 'rLq6jfODsKews2r2AmtotoLG',
+    placeholder: '气吞万里如虎~',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz',
+                'X-LC-Key': 'MGeMggbCv1gXJRkbnqvcFG17',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="NS12Yue1Ql">
+<meta name="google-site-verification" content="oJs5n2tuC6QdWpSzYCZga-3UsNcXnZCiOviHtspzhmA">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="title: Next主题安装与优化date: 2018-12-22 20:20:12categories: 建站comments: true 个性化设置基本信息在根目录下的_config.yml文件中，可以修改标题，作者等信息。打开编辑该文件，注意：每一个值的冒号后面都有一个半角空格！  能生效的写法：title:[空格]nMask的博客  主题美化写在最前面：1.在修改时请注意博客配置文件与主">
+<meta name="keywords" content="blog, 博客, 外贸, hexo, 产品, 调研">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shawn&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/Next主题安装与优化/index.html">
+<meta property="og:site_name" content="Shawn&#39;s Blog">
+<meta property="og:description" content="title: Next主题安装与优化date: 2018-12-22 20:20:12categories: 建站comments: true 个性化设置基本信息在根目录下的_config.yml文件中，可以修改标题，作者等信息。打开编辑该文件，注意：每一个值的冒号后面都有一个半角空格！  能生效的写法：title:[空格]nMask的博客  主题美化写在最前面：1.在修改时请注意博客配置文件与主">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/Next主题安装与优化/01.png">
+<meta property="og:image" content="https://shawnlin.cc/images/avatar.png">
+<meta property="og:image" content="http://yoursite.com/Next主题安装与优化/02.png">
+<meta property="og:image" content="http://yoursite.com/Next主题安装与优化/02.png">
+<meta property="og:image" content="http://yoursite.com/Next主题安装与优化/03.png">
+<meta property="og:updated_time" content="2019-01-31T02:38:23.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shawn&#39;s Blog">
+<meta name="twitter:description" content="title: Next主题安装与优化date: 2018-12-22 20:20:12categories: 建站comments: true 个性化设置基本信息在根目录下的_config.yml文件中，可以修改标题，作者等信息。打开编辑该文件，注意：每一个值的冒号后面都有一个半角空格！  能生效的写法：title:[空格]nMask的博客  主题美化写在最前面：1.在修改时请注意博客配置文件与主">
+<meta name="twitter:image" content="http://yoursite.com/Next主题安装与优化/01.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Next主题安装与优化/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | Shawn's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shawn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Today My Life Begins</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Next主题安装与优化/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawn Lin">
+      <meta itemprop="description" content="一个略懂编程的外贸人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shawn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-28 11:59:07" itemprop="dateCreated datePublished" datetime="2019-01-28T11:59:07+08:00">2019-01-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-31 10:38:23" itemprop="dateModified" datetime="2019-01-31T10:38:23+08:00">2019-01-31</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Next主题安装与优化/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/Next主题安装与优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/Next主题安装与优化/" class="leancloud_visitors" data-flag-title="">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: Next主题安装与优化<br>date: 2018-12-22 20:20:12<br>categories: 建站<br>comments: true</p>
+<h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>在根目录下的_config.yml文件中，可以修改标题，作者等信息。打开编辑该文件，注意：每一个值的冒号后面都有一个半角空格！</p>
+<ul>
+<li>能生效的写法：title:[空格]nMask的博客</li>
+</ul>
+<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><p><strong>写在最前面：</strong><br>1.在修改时请注意<strong>博客配置文件</strong>与<strong>主题配置文件</strong>的区别：<strong>博客配置文件</strong>是指博客根目录下的<code>_config.yml</code>文件，<br><strong>主题配置文件</strong>是指<code>/themes/主题名/</code>路径下的<code>_config.yml</code>文件，例如我使用的主题为next主题，<strong>主题配置文件</strong>为<code>/themes/next/_config.yml</code>。<br>2.文内所有命令行命令全部是在<strong>博客根目录打开命令行</strong>下输入的。根目录下目录结构为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Next主题安装"><a href="#Next主题安装" class="headerlink" title="Next主题安装"></a>Next主题安装</h3><p>目前Next主题的项目分成了两个项目，一个是5.1.4版本以下的，一个是一直更新的，现在已经更新到了6.7(2019.01.10)，建议直接用最新的，最新版本的主题已经把很多常用的功能集成了，用起来很方便。本篇文章是基于Next 6.7进行的修改与展示。<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next主题项目页面(v5.1.4)</a><br><a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">v6.7版本页面</a></p>
+<ul>
+<li>博客<strong>根目录</strong>打开命令行，用6.7版本输入命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后，打开<strong>博客配置文件</strong>修改最上方的<code>theme</code>项为<code>next</code></li>
+<li>修改完成后命令行输入<code>hexo s</code>本地运行一下看是否生效</li>
+</ul>
+<h3 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h3><ul>
+<li><p>修改语言</p>
+<p>修改<strong>博客配置文件</strong>下的<code>language</code>项为<code>zh-CN</code></p>
+<blockquote>
+<p>这里要<strong>注意</strong>一下，看一下主题文件夹内的<code>languange</code>文件夹中中文的配置文件叫什么名字，Next主题有些版本的叫<code>zh-Hans</code>那这里就填<code>zh-Hans</code>，Next最新版本中用的是<code>zh-CN</code>，故这里填写<code>zh-CN</code></p>
+</blockquote>
+</li>
+<li><p>修改菜单及创建分类页</p>
+<p>修改<strong>主题配置文件</strong>下的<code>menu</code>项，按需要打开菜单。例如我需要把<code>标签</code>页面打开，就把<code>tags</code>项前面的<code>#</code>去掉就行了。随后根据标签页或者分类页输入: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories    // 来新建出分类页</span><br><span class="line">hexo new page tags    // 新建出标签页。</span><br><span class="line">hexo new page about    // 新建出关于页</span><br></pre></td></tr></table></figure>
+<p><img src="/Next主题安装与优化/01.png" alt="menu"></p>
+</li>
+<li><p>修改主题风格</p>
+<p>Next自带四种主题风格，可以在<strong>主题配置文件</strong>搜索Scheme项，将需要的风格前的#去掉，注意只能开启一个风格。我是用的是Gemini主题</p>
+</li>
+<li><p>设置作者头像</p>
+<p>编辑<strong>主题配置文件</strong>，搜索修改字段 <code>avatar</code>， 值设置成头像的链接地址。可以设置成在线的图片地址。也可以把图片放在本地。</p>
+<p><strong>方法1：</strong><br>在线图片设置：假设现在有一张网络图片:<br><img src="https://shawnlin.cc/images/avatar.png" alt="avatar">它的链接是<a href="https://shawnlin.cc/images/avatar.png" target="_blank" rel="noopener">https://shawnlin.cc/images/avatar.png</a>, 那么修改url即可: </p>
+<p><img src="/Next主题安装与优化/02.png" alt="avatar"></p>
+<p><strong>方法2：</strong><br>本地设置：放置在<code>source/images</code>目录下，设置为<code>url: /images/avatar.jpg</code><br><img src="/Next主题安装与优化/02.png" alt="avatar"></p>
+<p>这个<code>rounded</code>项可以设置头像为圆形，设置为<code>ture</code>后会自动根据头像的尺寸将头像变化为圆形或者椭圆，头像图片为正方形的话则为圆形。长方形的话长宽相差越大，椭圆越明显。<br>设置<code>opacity</code>的值控制头像的透明度，值为0 - 1。<br><code>rotated</code>项为头像旋转，设置为<code>true</code>，则鼠标指到头像时头像会旋转。</p>
+</li>
+<li><p>设置代码高亮主题</p>
+<p>NexT 使用 <a href="https://github.com/chriskempson/tomorrow-theme" target="_blank" rel="noopener">Tomorrow Theme</a>作为代码高亮，共有5款主题供你选择。 NexT 默认使用的是 白色的 <code>normal</code> 主题，可选的值有 <code>normal</code>，<code>night</code>， <code>night blue</code>， <code>night bright</code>， <code>night eighties</code><br>更改 <strong>主题配置文件</strong>中的<code>highlight_theme</code> 字段，将其值设定成你所喜爱的高亮主题即可。</p>
+</li>
+<li><p>侧边栏社交链接</p>
+<p>侧栏社交链接的修改包含两个部分， 配置在 <strong>主题配置文件</strong> 中。<code>social</code>字段为连接，格式为<code>显示文本: 链接地址 || Font Awesome图标名称</code></p>
+<p><code>图标名称</code> 是 Font Awesome 图标的名字（不必带 <code>fa-</code> 前缀）。<code>enable</code> 选项用于控制是否显示图标，你可以设置成 <code>false</code> 来去掉图标。例如: <code>百度: https://baidu.com || firefox</code><br>Font Awesome图标可以到<a href="https://www.lixint.me/www.fontawesome.com.cn" target="_blank" rel="noopener">Font Awesome</a>查看</p>
+</li>
+<li><p>设置RSS</p>
+<p>NexT 中 RSS 有三个设置选项，满足特定的使用场景。 更改<strong>主题配置文件</strong>，设定 <code>rss</code> 字段的值：<br><code>false</code>：禁用 RSS，不在页面上显示 RSS 连接。<br>留空：默认就是留空的，使用 Hexo 生成的 Feed 链接。 你可以需要先安装 <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a> 插件。<br>安装方法：根目录下命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置网站图标</p>
+<p>在<a href="http://www.easyicon.net/" target="_blank" rel="noopener">EasyIcon</a>中分别找一张（16 <em>16与32</em> 32）的<code>ico</code>图标,或者去别的网站下载或者制作，并将图标名称改为<code>favicon16.ico</code>与<code>favicon32.ico</code>，然后把图标放在<code>/themes/next/source/images</code>或者放在根目录的<code>/source/images</code>文件夹里。<br>在<strong>主题配置文件</strong>内搜索<code>favicon</code>字段，把 <code>small</code>、<code>medium</code>字段的地址修改为<code>/images/favicon16.ico</code> 与 <code>/images/favicon32.ico</code></p>
+</li>
+<li><p>实现全站/文章数字统计/阅读时长</p>
+<p>根目录命令运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+<p><strong>博客配置文件</strong>底部添加如下内容，保存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h4><p>最新版本的Next主题是内置了加载条功能的。<br>根目录打开命令行，输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pace themes/next/source/lib/pace</span><br></pre></td></tr></table></figure>
+<p>然后<strong>主题配置文件</strong>搜索<code>pace</code>字段，修改<code>pace: false</code>为<code>pace: true</code>即可开启加载条功能，修改下方的<code>pace-theme</code>字段还可以修改加载条的样式。</p>
+</li>
+<li><h4 id="修改网页底部的小图标"><a href="#修改网页底部的小图标" class="headerlink" title="修改网页底部的小图标"></a>修改网页底部的小图标</h4><p><strong>主题配置文件</strong>搜索<code>footer</code>字段，修改下方的<code>icon</code>字段下的<code>name</code>字段。<code>name</code>字段后的名字是 Font Awesome 图标的名字（不必带 <code>fa-</code> 前缀）。</p>
+<p><code>animated</code>自动为闪动开关，设置为<code>true</code>后图标会闪动。<br>以及可以设置图标颜色，<code>color</code>处填入16进制颜色代码即可。注意保留原来的双引号。</p>
+</li>
+<li><h4 id="去掉页面底部的强力驱动信息及设置备案信息"><a href="#去掉页面底部的强力驱动信息及设置备案信息" class="headerlink" title="去掉页面底部的强力驱动信息及设置备案信息"></a>去掉页面底部的强力驱动信息及设置备案信息</h4><p><strong>主题配置文件</strong>搜索<code>copyright</code>字段，修改<code>powered</code>下的<code>enable</code>字段的<code>true</code>为<code>false</code>即可去掉强力驱动部分的内容。</p>
+<p>同样的<code>theme</code>下的<code>enable</code>设置为<code>false</code>的话可以去掉页面底部的主题信息。</p>
+<p>如果博客有备案的话，下方<code>beian</code>字段设置为<code>true</code>，<code>icp</code>后填写备案号。</p>
+</li>
+<li><h4 id="添加动态背景"><a href="#添加动态背景" class="headerlink" title="添加动态背景"></a>添加动态背景</h4><p>根目录打开命令行，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest themes/next/source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
+<p><strong>主题配置文件</strong>搜索<code>canvas-nest</code>字段，<code>enable</code>项设置为<code>true</code>。</p>
+</li>
+<li><h4 id="增加回到顶部按钮及显示当前浏览进度"><a href="#增加回到顶部按钮及显示当前浏览进度" class="headerlink" title="增加回到顶部按钮及显示当前浏览进度"></a>增加回到顶部按钮及显示当前浏览进度</h4><p><strong>主题配置文件</strong>搜索<code>b2t</code>字段，将<code>b2t</code>字段的<code>false</code>修改为<code>true</code>即可，（注意此功能只能用于Pisces和Gemini主题）。</p>
+<p>将下方的<code>scrollpercent</code>字段设置为<code>true</code>即可实现当前浏览进度的显示。</p>
+</li>
+<li><h4 id="为博客加上萌萌的宠物"><a href="#为博客加上萌萌的宠物" class="headerlink" title="为博客加上萌萌的宠物"></a>为博客加上萌萌的宠物</h4><p>首先安装插件，根目录命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+<p><strong>主题配置文件</strong>最下方添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Live2D</span><br><span class="line">## https://github.com/xiazeyu/live2d-widget.js</span><br><span class="line">## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init</span><br><span class="line">live2d:</span><br><span class="line">  model:</span><br><span class="line">    scale: 1</span><br><span class="line">    hHeadPos: 0.5</span><br><span class="line">    vHeadPos: 0.618</span><br><span class="line">  display:</span><br><span class="line">    superSample: 2</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">    position: right</span><br><span class="line">    hOffset: 0</span><br><span class="line">    vOffset: -20</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br><span class="line">    scale: 0.5</span><br><span class="line">  react:</span><br><span class="line">    opacityDefault: 0.7</span><br><span class="line">    opacityOnHover: 0.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="增加本地搜索功能"><a href="#增加本地搜索功能" class="headerlink" title="增加本地搜索功能"></a>增加本地搜索功能</h4><p>首先安装插件，根目录命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>编辑<strong>博客配置文件</strong>，新增以下内容到任意位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p><strong>主题配置文件</strong>搜索<code>local_search</code>字段，设置<code>enable</code>为<code>true</code></p>
+</li>
+<li><h3 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h3><p>修改模板<code>/themes/next/layout/_macro/post.swig</code>，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>，此处的图标用的是Font-Awesome，可以根据需要换成其他的图标。</p>
+</li>
+<li><h3 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h3><p>在路径 <code>\themes\next\layout\_macro</code> 中新建 <code>passage-end-tag.swig</code> 文件,并添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>接着打开<code>\themes\next\layout\_macro\post.swig</code>文件，在<code>post-body</code> 之后， <code>post-footer</code> 之前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% if not is_index %&#125;</span><br><span class="line">    &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增加网站访问量统计</p>
+<p>在<strong>主题设置</strong>文件中搜索busuanzi, 设置: </p>
+<p><img src="/Next主题安装与优化/03.png" alt="busuanzi"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019全年亚马逊节日热销汇总/" rel="next" title="2019全年亚马逊节日热销汇总">
+                <i class="fa fa-chevron-left"></i> 2019全年亚马逊节日热销汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Shawn Lin">
+            
+              <p class="site-author-name" itemprop="name">Shawn Lin</p>
+              <p class="site-description motion-element" itemprop="description">一个略懂编程的外贸人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/shawnlinq" title="GitHub &rarr; https://github.com/shawnlinq" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:shawn_linq@hotmail.com" title="E-Mail &rarr; mailto:shawn_linq@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.douban.com/people/47269318/" title="Douban &rarr; https://www.douban.com/people/47269318/" rel="noopener" target="_blank"><i class="fa fa-fw fa-anchor"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/images/weixin.png" title="Weixin &rarr; /images/weixin.png"><i class="fa fa-fw fa-weixin"></i>Weixin</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化设置"><span class="nav-number">1.</span> <span class="nav-text">个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本信息"><span class="nav-number">1.1.</span> <span class="nav-text">基本信息</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number"></span> <span class="nav-text">主题美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题安装"><span class="nav-number">0.1.</span> <span class="nav-text">Next主题安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题修改"><span class="nav-number">0.2.</span> <span class="nav-text">主题修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加顶部加载条"><span class="nav-number">0.2.1.</span> <span class="nav-text">添加顶部加载条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改网页底部的小图标"><span class="nav-number">0.2.2.</span> <span class="nav-text">修改网页底部的小图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉页面底部的强力驱动信息及设置备案信息"><span class="nav-number">0.2.3.</span> <span class="nav-text">去掉页面底部的强力驱动信息及设置备案信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加动态背景"><span class="nav-number">0.2.4.</span> <span class="nav-text">添加动态背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增加回到顶部按钮及显示当前浏览进度"><span class="nav-number">0.2.5.</span> <span class="nav-text">增加回到顶部按钮及显示当前浏览进度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为博客加上萌萌的宠物"><span class="nav-number">0.2.6.</span> <span class="nav-text">为博客加上萌萌的宠物</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增加本地搜索功能"><span class="nav-number">0.2.7.</span> <span class="nav-text">增加本地搜索功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-number">0.3.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">0.4.</span> <span class="nav-text">在每篇文章末尾统一添加“本文结束”标记</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawn Lin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">44k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,102,245" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+
+
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function (item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'q4WTkMEfnI1dzAXyoeGVSsqV-gzGzoHsz',
+    appKey: 'rLq6jfODsKews2r2AmtotoLG',
+    placeholder: '气吞万里如虎~',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+  
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'PjaD2ldE4Hai0kFqpoPhoWkT-gzGzoHsz',
+                'X-LC-Key': 'MGeMggbCv1gXJRkbnqvcFG17',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

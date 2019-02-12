@@ -1,5 +1,18 @@
 [
 {"title":"Hello World","url":"/2019/01/09/hello-world/"},
 {"title":"test","url":"/2019/01/10/test/"},
+{"title":"Git命令速查手册","url":"/Git命令速查手册/"},
+{"title":"Markdown速查手册","url":"/Markdown速查手册/"},
+{"title":"Python小练习","url":"/Python小练习/"},
+{"title":"Python的sort用法以及原理","url":"/Python的sort用法以及原理/"},
+{"title":"SIQ Blog项目树","url":"/SIQ Blog项目树/"},
 {"title":"Hello World","url":"/hello-world/"},
+{"title":"uwsgi服务速查手册","url":"/uwsgi服务速查手册/"},
+{"title":"云服务器、域名的购买以及解析绑定流程","url":"/与服务器、域名的购买与解析绑定/"},
+{"title":"使用PuTTY远程连接云服务器","url":"/使用PuTTY远程连接云服务器/"},
+{"title":"使用filezilla上传文件至云服务器","url":"/使用filezilla上传文件或者项目/"},
+{"title":"使用nginx+uwsgi在云服务器上部署web项目","url":"/使用nginx+uwsgi在云服务器上部署web项目/"},
+{"title":"在Centos6.5下升级python至3.6.0","url":"/在centos6.5升级python至3.6.0/"},
+{"title":"多系统中安装MongoDB","url":"/多系统中安装MongoDB/"},
+{"title":"高效文件管理软件Listary","url":"/高效文件管理软件Listary/"},
 ]

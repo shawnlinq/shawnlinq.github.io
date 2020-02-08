@@ -13,6 +13,7 @@
 {"title":"Hello World","url":"/hello-world/"},
 {"title":"uwsgi服务速查手册","url":"/uwsgi服务速查手册/"},
 {"title":"云服务器、域名的购买以及解析绑定流程","url":"/与服务器、域名的购买与解析绑定/"},
+{"title":"亚马逊各类流量分析","url":"/亚马逊各类流量分析/"},
 {"title":"亚马逊移动端的优化","url":"/亚马逊移动端的优化/"},
 {"title":"使用PuTTY远程连接云服务器","url":"/使用PuTTY远程连接云服务器/"},
 {"title":"使用filezilla上传文件至云服务器","url":"/使用filezilla上传文件或者项目/"},

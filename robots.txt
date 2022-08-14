@@ -13,5 +13,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://shawnlin.cc/sitemap.xml
-Sitemap: http://shawnlin.cc/baidusitemap.xml
+Sitemap: http://linqun.cc/sitemap.xml
+Sitemap: http://linqun.cc/baidusitemap.xml
